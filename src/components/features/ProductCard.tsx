@@ -16,13 +16,17 @@ interface ProductCardProps {
 
 export function ProductCard({ product, compact = false }: ProductCardProps) {
   return (
-    <article className="card">
-      <img src={product.image} alt={product.title} />
-      <p className="badge">{product.category}</p>
-      <h3>{compact ? product.title.slice(0, 40) : product.title}</h3>
-      <p className="muted">{product.description.slice(0, 90)}...</p>
-      <div className="section-title">
-        <strong>${product.price.toFixed(2)}</strong>
+    <article className="card product-card">
+      <div className="product-media">
+        <img src={product.image} alt={product.title} />
+      </div>
+      <div className="product-body">
+        <p className="badge">{product.category}</p>
+        <h3>{compact ? product.title.slice(0, 40) : product.title}</h3>
+        <p className="muted">{product.description.slice(0, 90)}...</p>
+      </div>
+      <div className="product-footer">
+        <strong className="price-tag">${product.price.toFixed(2)}</strong>
         <Link className="primary-button" to={`/product/${product.id}`}>Ver detalle</Link>
       </div>
     </article>

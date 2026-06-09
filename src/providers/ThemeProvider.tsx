@@ -6,12 +6,14 @@ interface ThemeContextValue {
   setTheme: (theme: ThemeMode) => void;
 }
 
+const DEFAULT_THEME: ThemeMode = 'dark';
+
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<ThemeMode>(() => {
     const stored = localStorage.getItem('fakestore-theme') as ThemeMode | null;
-    return stored ?? 'dark';
+    return stored ?? DEFAULT_THEME;
   });
 
   useEffect(() => {
