@@ -1,4 +1,4 @@
-import type { Product } from '../types';
+import type { Product } from '../types/index';
 
 const BASE_URL = 'https://fakestoreapi.com';
 

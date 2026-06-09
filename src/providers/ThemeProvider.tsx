@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import type { ThemeMode } from '../types';
+import type { ThemeMode } from '../types/index';
 
 interface ThemeContextValue {
   theme: ThemeMode;

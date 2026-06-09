@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchProductById } from '../services/fakeStore';
-import type { Product } from '../types';
+import type { Product } from '../types/index';
 
 export function ProductPage() {
   const { id } = useParams();

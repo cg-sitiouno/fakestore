@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/ui/Button';
+import { Input } from '../components/ui/Input';
 import { useAuth } from '../providers/AuthProvider';
 
 export function LoginPage() {
@@ -28,10 +30,10 @@ export function LoginPage() {
       </article>
       <article className="card">
         <form className="form-grid" onSubmit={handleSubmit}>
-          <input value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Correo" />
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Contraseña" />
+          <Input label="Correo" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Correo" />
+          <Input label="Contraseña" type="password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Contraseña" />
           {error && <p className="muted">{error}</p>}
-          <button className="primary-button" type="submit">Entrar</button>
+          <Button variant="primary" type="submit">Entrar</Button>
         </form>
       </article>
     </section>

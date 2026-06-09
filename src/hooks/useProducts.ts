@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { fetchProducts } from '../services/fakeStore';
-import type { Product, ProductDraft } from '../types';
+import type { Product, ProductDraft } from '../types/index';
 
 const STORAGE_KEY = 'fakestore-learning-products';
 

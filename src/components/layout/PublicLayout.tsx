@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { Button } from '../ui/Button';
 import { useAuth } from '../../providers/AuthProvider';
 import { useLanguage } from '../../providers/LanguageProvider';
 import { useTheme } from '../../providers/ThemeProvider';
@@ -46,7 +47,7 @@ export function PublicLayout() {
             </label>
 
             {isAuthenticated ? (
-              <button className="ghost-button" onClick={logout}>{t('logout')}</button>
+              <Button variant="ghost" onClick={logout}>{t('logout')}</Button>
             ) : (
               <NavLink className="primary-button" to="/login">{t('login')}</NavLink>
             )}

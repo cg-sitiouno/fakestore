@@ -8,6 +8,8 @@
  */
 
 import { useEffect, useState, type FormEvent } from 'react';
+import { Button } from '../ui/Button';
+import { Input } from '../ui/Input';
 import type { ProductDraft } from '../../types/index';
 
 interface ProductFormProps {
@@ -46,13 +48,13 @@ export function ProductForm({ initialValue, onSubmit, submitLabel = 'Guardar pro
   return (
     <form className="card form-grid" onSubmit={handleSubmit}>
       <h3>Formulario de producto</h3>
-      <input value={form.title} onChange={(event) => handleChange('title', event.target.value)} placeholder="Título" required />
-      <input type="number" value={form.price} onChange={(event) => handleChange('price', event.target.value)} placeholder="Precio" required />
-      <input value={form.category} onChange={(event) => handleChange('category', event.target.value)} placeholder="Categoría" required />
-      <textarea value={form.description} onChange={(event) => handleChange('description', event.target.value)} placeholder="Descripción" rows={4} required />
-      <input value={form.image} onChange={(event) => handleChange('image', event.target.value)} placeholder="URL de imagen" />
+      <Input label="Título" value={form.title} onChange={(event) => handleChange('title', event.target.value)} required />
+      <Input label="Precio" type="number" value={form.price} onChange={(event) => handleChange('price', event.target.value)} required />
+      <Input label="Categoría" value={form.category} onChange={(event) => handleChange('category', event.target.value)} required />
+      <Input label="Descripción" multiline minRows={4} value={form.description} onChange={(event) => handleChange('description', event.target.value)} required />
+      <Input label="URL de imagen" value={form.image} onChange={(event) => handleChange('image', event.target.value)} />
       <div className="form-actions">
-        <button className="primary-button" type="submit">{submitLabel}</button>
+        <Button variant="primary" type="submit">{submitLabel}</Button>
       </div>
     </form>
   );

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { ProductForm } from '../components/features/ProductForm';
 import { ProductCard } from '../components/features/ProductCard';
 import { useProducts } from '../hooks/useProducts';
-import type { ProductDraft } from '../types';
+import type { ProductDraft } from '../types/index';
 
 export function DashboardPage() {
   const { products, addProduct, updateProduct, removeProduct } = useProducts();

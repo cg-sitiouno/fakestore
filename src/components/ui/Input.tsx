@@ -1,20 +1,26 @@
 /**
  * Input
- * Descripción: campo base reutilizable para formularios de estudio.
+ * Descripción: campo base reutilizable con el estilo Material UI para formularios.
  * Props:
  *  - label: texto visible opcional.
- *  - ...props: atributos estándar de input.
+ *  - ...props: atributos estándar de TextField de MUI.
  */
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+import MuiTextField, { type TextFieldProps } from '@mui/material/TextField';
+
+export type InputProps = Omit<TextFieldProps, 'variant'> & {
   label?: string;
-}
+  variant?: 'outlined' | 'filled' | 'standard';
+};
 
 export function Input({ label, ...props }: InputProps) {
   return (
-    <label className="form-grid">
-      {label && <span>{label}</span>}
-      <input {...props} />
-    </label>
+    <MuiTextField
+      fullWidth
+      size="small"
+      variant="outlined"
+      label={label}
+      {...props}
+    />
   );
 }
