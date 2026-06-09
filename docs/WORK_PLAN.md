@@ -100,8 +100,24 @@ Criterio de completitud:
 
 ## Seguimiento recomendado
 - Revisar esta guía al iniciar cada sesión.
-- Marcar tareas como completadas en el mismo documento o en una tabla de progreso.
+- Marcar tareas como completadas en el mismo documento.
 - Si una tarea cambia de alcance, actualizar la documentación correspondiente.
+
+## Tablero de progreso
+- [ ] Fase 1 — Base del proyecto
+- [ ] Fase 2 — Núcleo de la app
+- [ ] Fase 3 — UI reutilizable y diseño base
+- [ ] Fase 4 — Integración con FakeStore API
+- [ ] Fase 5 — CRUD completo
+- [ ] Fase 6 — Refinamiento y aprendizaje
+
+## Criterios de cierre por fase
+- Fase 1: estructura base y documentación inicial listas.
+- Fase 2: navegación y autenticación funcionales.
+- Fase 3: componentes reutilizables y preferencias configurables.
+- Fase 4: consumo modular de la API con estados de carga/error.
+- Fase 5: CRUD completo y validaciones básicas añadidas.
+- Fase 6: calidad, accesibilidad y continuidad del proyecto verificadas.
 
 ## Entregables principales
 - App funcional con secciones pública y privada
