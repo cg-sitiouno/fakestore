@@ -7,6 +7,8 @@
  */
 
 import { Link } from 'react-router-dom';
+import { Button } from '../ui/Button';
+import { useCart } from '../../providers/CartProvider';
 import type { Product } from '../../types/index';
 
 interface ProductCardProps {
@@ -15,6 +17,8 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, compact = false }: ProductCardProps) {
+  const { addItem } = useCart();
+
   return (
     <article className="card product-card">
       <div className="product-media">
@@ -27,7 +31,10 @@ export function ProductCard({ product, compact = false }: ProductCardProps) {
       </div>
       <div className="product-footer">
         <strong className="price-tag">${product.price.toFixed(2)}</strong>
-        <Link className="primary-button" to={`/product/${product.id}`}>Ver detalle</Link>
+        <div className="form-actions">
+          <Button variant="ghost" onClick={() => addItem(product)}>Añadir</Button>
+          <Link className="primary-button" to={`/product/${product.id}`}>Ver detalle</Link>
+        </div>
       </div>
     </article>
   );

@@ -16,6 +16,11 @@ export interface ProductDraft {
   image: string;
 }
 
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
+
 export interface AuthUser {
   email: string;
   name: string;

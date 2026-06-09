@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button } from '../components/ui/Button';
 import { fetchProductById } from '../services/fakeStore';
+import { useCart } from '../providers/CartProvider';
 import type { Product } from '../types/index';
 
 export function ProductPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { addItem } = useCart();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -38,6 +42,10 @@ export function ProductPage() {
         <p className="muted">{product.description}</p>
         <p><strong>Precio:</strong> ${product.price.toFixed(2)}</p>
         <p><strong>Valoración:</strong> {product.rating?.rate ?? 'N/A'} / 5</p>
+        <div className="form-actions">
+          <Button variant="primary" onClick={() => addItem(product)}>Agregar al carrito</Button>
+          <Button variant="ghost" onClick={() => { addItem(product); navigate('/checkout'); }}>Comprar ahora</Button>
+        </div>
       </article>
     </section>
   );

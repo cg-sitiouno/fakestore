@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Button } from '../ui/Button';
 import { useAuth } from '../../providers/AuthProvider';
+import { useCart } from '../../providers/CartProvider';
 import { useLanguage } from '../../providers/LanguageProvider';
 import { useTheme } from '../../providers/ThemeProvider';
 
 export function PublicLayout() {
   const { isAuthenticated, logout } = useAuth();
+  const { totalItems } = useCart();
   const { t, setLanguage } = useLanguage();
   const { theme, setTheme } = useTheme();
 
@@ -23,6 +25,7 @@ export function PublicLayout() {
 
           <div className="nav-links">
             <NavLink to="/">{t('catalog')}</NavLink>
+            <NavLink to="/checkout">Checkout ({totalItems})</NavLink>
           </div>
 
           <div className="nav-actions">
